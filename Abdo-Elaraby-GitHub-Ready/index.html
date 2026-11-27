@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Abdo Elaraby — Video Editor for Creators &amp; Businesses</title>
-<meta name="description" content="Abdo Elaraby is a video editor in Cairo, Egypt. Short-form, YouTube, podcast and course editing for creators, personal brands and businesses.">
+<meta name="description" content="Abdo Elaraby is a video editor. Short-form, YouTube, podcast and course editing for creators, personal brands and businesses.">
 <meta name="theme-color" content="#0D0818">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://abdoelaraby.vercel.app/">
@@ -195,7 +195,7 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
 .tools{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
 .tools li{padding:.38rem .85rem;border:1px solid var(--line);border-radius:999px;background:var(--glass);font-size:.8rem;font-weight:500;color:var(--mu)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
-.hero-photo{order:2;justify-self:center;width:min(280px,68vw)}
+.hero-photo{order:-1;justify-self:center;width:min(280px,68vw)}
 @media (min-width:900px){.hero-photo{order:0;justify-self:end;width:min(380px,100%)}}
 .photo-stage{position:relative}
 .photo-frame{position:relative;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line2);background:var(--bg3);box-shadow:var(--shadow),0 0 70px rgba(212,144,10,.1)}
@@ -230,14 +230,18 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
   .marquee-logos .marquee-track{animation:marquee var(--dur,40s) linear infinite}
   .marquee-logos:hover .marquee-track{animation-play-state:paused}
 }
-/* The reel only auto-moves for mouse users. Touch users get native swipe. */
-@media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){
+/* The reel auto-moves on every device (phone included) */
+@media (prefers-reduced-motion:no-preference){
   .marquee-reel{overflow:hidden}
   .marquee-reel .marquee-track{animation:marquee var(--dur,45s) linear infinite}
+}
+@media (hover:hover) and (pointer:fine){
   .marquee-reel:hover .marquee-track,.marquee-reel:focus-within .marquee-track{animation-play-state:paused}
 }
+.vc-prev{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;opacity:0;transition:opacity .5s}
+.vc-prev.on{opacity:1}
+.vc-short .vc-prev{width:100%;height:100%}
 @media (prefers-reduced-motion:reduce){.dup-set{display:none}}
-@media not all and (hover:hover) and (pointer:fine){.marquee-reel .dup-set{display:none}}
 
 .clients{position:relative;z-index:1;padding-block:2.5rem;border-block:1px solid rgba(255,255,255,.05)}
 .clients-title{margin-bottom:1.5rem;text-align:center;font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mu2);padding-inline:var(--gutter)}
@@ -395,7 +399,6 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
   "image":"https://abdoelaraby.carrd.co/assets/images/image01.jpg?v=68beb1a4",
   "email":"mailto:abdoelaraby@gmail.com",
   "telephone":"+201153063056",
-  "address":{"@type":"PostalAddress","addressLocality":"Cairo","addressCountry":"EG"},
   "knowsAbout":["Video editing","Short-form video","YouTube video editing","Podcast editing","Course video production"],
   "sameAs":["https://www.instagram.com/abdoelaraby.media/","https://www.linkedin.com/in/elarabyy/"]
 }
@@ -458,7 +461,7 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
         <a class="pill-social" href="https://www.linkedin.com/in/elarabyy/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-in"/></svg></a>
       </div>
       <span class="pill-sep" aria-hidden="true"></span>
-      <a class="btn btn-primary btn-sm pill-cta" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><span>Contact Me</span></a>
+      <a class="btn btn-primary btn-sm pill-cta" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><span>Get in Touch</span></a>
     </nav>
 
     <!-- Mobile / tablet -->
@@ -474,7 +477,7 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
   <a class="drawer-link" href="#work">Work</a>
   <a class="drawer-link" href="#testimonials">Testimonials</a>
   <a class="drawer-link" href="#contact">Contact</a>
-  <a class="btn btn-primary" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg><span>Get in Touch</span></a>
+  <a class="btn btn-primary" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><span>Get in Touch</span></a>
   <div class="drawer-socials">
     <a href="https://www.instagram.com/abdoelaraby.media/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" aria-hidden="true"><use href="#i-ig"/></svg></a>
     <a href="https://www.linkedin.com/in/elarabyy/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-in"/></svg></a>
@@ -487,15 +490,12 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
 <section class="hero" id="hero" aria-label="Introduction">
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <p id="hero-eyebrow" class="eyebrow hero-anim" style="--d:.05s">Video Editor · Cairo, Egypt</p>
+      <p id="hero-eyebrow" class="eyebrow hero-anim" style="--d:.05s">Video Editor</p>
       <h1 id="hero-title" class="hero-title hero-anim" style="--d:.15s"><span>Abdo</span><span>Elaraby</span></h1>
       <p id="hero-tag" class="hero-tag hero-anim" style="--d:.25s">I turn raw footage into high-retention videos.</p>
       <p id="hero-bio" class="hero-bio hero-anim" style="--d:.35s">A Video Editor with +4 years of experience.<br>Worked with +30 clients and edited +700 videos.<br>Helping brands &amp; creators stand out through video.</p>
-      <ul id="hero-tools" class="tools hero-anim" style="--d:.42s" aria-label="Tools">
-        <li>Premiere Pro</li><li>After Effects</li><li>DaVinci Resolve</li><li>Photoshop</li>
-      </ul>
       <div class="hero-cta hero-anim" style="--d:.5s">
-        <a class="btn btn-primary" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg><span>Get in Touch</span></a>
+        <a class="btn btn-primary" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><span>Get in Touch</span></a>
         <a class="btn btn-ghost" href="#work"><span>View Work</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-d"/></svg></a>
       </div>
     </div>
@@ -583,7 +583,7 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
       <h2 class="cta-title" id="cta-title"><span>Have footage?</span><span>Let's make it worth watching.</span></h2>
       <p class="cta-sub">Tell me what you're creating and who it's for — I'll help you shape an edit that fits your audience and your goals.</p>
       <div class="cta-actions">
-        <a class="btn btn-primary" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg><span>Start on WhatsApp</span></a>
+        <a class="btn btn-primary" data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener"><span>Get in Touch</span></a>
         <a class="btn btn-ghost" href="https://www.instagram.com/abdoelaraby.media/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-ig"/></svg><span>Instagram</span></a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/elarabyy/" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-in"/></svg><span>LinkedIn</span></a>
       </div>
@@ -592,7 +592,7 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
   </div>
 </section>
 
-<noscript><p style="position:relative;z-index:2;padding:2rem;text-align:center">Abdo Elaraby — Video Editor, Cairo. Contact: <a href="mailto:abdoelaraby@gmail.com" style="text-decoration:underline">abdoelaraby@gmail.com</a> · <a href="https://wa.me/201153063056" style="text-decoration:underline">WhatsApp</a></p></noscript>
+<noscript><p style="position:relative;z-index:2;padding:2rem;text-align:center">Abdo Elaraby — Video Editor. Contact: <a href="mailto:abdoelaraby@gmail.com" style="text-decoration:underline">abdoelaraby@gmail.com</a> · <a href="https://wa.me/201153063056" style="text-decoration:underline">WhatsApp</a></p></noscript>
 </main>
 
 <!-- ═════════ FOOTER ═════════ -->
@@ -620,7 +620,6 @@ html.js.is-ready .hero-anim{opacity:1;transform:none}
     <div>
       <p class="f-title">Get in Touch</p>
       <ul class="f-contact">
-        <li><span class="f-ic"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span><span>Cairo, Egypt</span></li>
         <li><span class="f-ic"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span><a href="mailto:abdoelaraby@gmail.com">abdoelaraby@gmail.com</a></li>
         <li><span class="f-ic"><svg class="ic" aria-hidden="true"><use href="#i-call"/></svg></span><a data-wa href="https://wa.me/201153063056" target="_blank" rel="noopener" dir="ltr">+20 115 306 3056</a></li>
       </ul>
@@ -650,12 +649,12 @@ window.AE_CONFIG = {
 window.AE_DEFAULT_CONTENT = {
   "profile": {
     "name": "Abdo Elaraby",
-    "eyebrow": "VIDEO EDITOR · CAIRO, EGYPT",
+    "eyebrow": "Video Editor",
     "headline": ["Abdo", "Elaraby"],
     "tagline": "I turn raw footage into high-retention videos.",
     "bio": "A Video Editor with +4 years of experience.\nWorked with +30 clients and edited +700 videos.\nHelping brands & creators stand out through video.",
     "photo_url": "https://abdoelaraby.carrd.co/assets/images/image01.jpg?v=68beb1a4",
-    "tools": ["Premiere Pro", "After Effects", "DaVinci Resolve", "Photoshop"]
+    "tools": []
   },
   "stats": [
     { "value": 700, "suffix": "+", "label": "Videos edited" },
@@ -702,8 +701,7 @@ window.AE_DEFAULT_CONTENT = {
     "email": "abdoelaraby@gmail.com",
     "instagram": "https://www.instagram.com/abdoelaraby.media/",
     "linkedin": "https://www.linkedin.com/in/elarabyy/",
-    "location": "Cairo, Egypt",
-    "clients_heading": "Creators & brands I've worked with",
+        "clients_heading": "Creators & brands I've worked with",
     "services_tag": "What I Do",
     "services_heading": "My Services",
     "services_subtitle": "Every service has one goal: content that keeps people watching.",
@@ -716,7 +714,7 @@ window.AE_DEFAULT_CONTENT = {
     "cta_tag": "Let's work together",
     "cta_title": "Have footage? Let's make it worth watching.",
     "cta_subtitle": "Tell me what you're creating and who it's for — I'll help you shape an edit that fits your audience and your goals.",
-    "whatsapp_button": "Start on WhatsApp",
+    "whatsapp_button": "Get in Touch",
     "email_prompt": "Prefer email?"
   }
 };
@@ -818,6 +816,26 @@ function reelCard(p, dup) {
   return `<button type="button" class="vc vc-${kind}" data-play="${esc(p.youtube_id)}" data-kind="${kind}" ${dup ? 'tabindex="-1"' : ''} aria-label="Play: ${esc(p.title)} — ${esc(p.client)}"><span class="vc-thumb"><img src="${esc(thumb(p))}" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vc-play" aria-hidden="true"><svg class="ic"><use href="#i-play"></use></svg></span></span><span class="vc-foot"><span class="vc-cat">${esc(p.category)}</span><span class="vc-title">${esc(p.title)}</span><span class="vc-cli">${esc(p.client)}</span></span></button>`;
 }
 
+function setupPreviews() {
+  if (!('IntersectionObserver' in window)) return;
+  const MAX = 8;
+  const src = id => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&mute=1&loop=1&playlist=${encodeURIComponent(id)}&controls=0&playsinline=1&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3`;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const thumb = e.target.querySelector('.vc-thumb'); if (!thumb) return;
+    const cur = thumb.querySelector('.vc-prev');
+    if (e.isIntersecting) {
+      if (cur || document.querySelectorAll('.vc-prev').length >= MAX) return;
+      const f = document.createElement('iframe');
+      f.className = 'vc-prev'; f.tabIndex = -1; f.setAttribute('aria-hidden', 'true'); f.title = '';
+      f.allow = 'autoplay; encrypted-media'; f.loading = 'lazy';
+      f.src = src(e.target.dataset.play);
+      f.addEventListener('load', () => setTimeout(() => f.classList.add('on'), 900));
+      thumb.insertBefore(f, thumb.querySelector('.vc-play'));
+    } else if (cur) cur.remove();
+  }), { threshold: .6 });
+  $$('.vc-short').forEach(c => io.observe(c));   /* long-form stays a thumbnail until clicked */
+}
+
 function renderReels() {
   const projects = DATA.projects || [];
   $('#reel-short').innerHTML = buildMarquee(projects.filter(p => p.kind === 'short'), reelCard, 185);
@@ -858,8 +876,7 @@ function applyProfileAndSettings() {
   if (bio && bioLines.length) bio.innerHTML = bioLines.map(esc).join('<br>');
 
   const photo = $('.photo-frame img'); if (photo && p.photo_url) photo.src = p.photo_url;
-  const tools = $('#hero-tools');      if (tools && (p.tools || []).length) tools.innerHTML = p.tools.map(x => `<li>${esc(x)}</li>`).join('');
-
+  
   /* Section texts */
   setText('#clients-title', s.clients_heading);
   setText('#services .sec-tag', s.services_tag);
@@ -890,7 +907,6 @@ function applyProfileAndSettings() {
   });
   $$('a[href*="instagram.com"]').forEach(a => { a.href = s.instagram || '#'; });
   $$('a[href*="linkedin.com"]').forEach(a => { a.href = s.linkedin || '#'; });
-  setText('.f-contact li:first-child span:last-child', s.location);
   setText('#contact [data-wa] span', s.whatsapp_button);
   setText('.cta-mail span', s.email_prompt);
 
@@ -916,6 +932,7 @@ function render() {
   renderStats(); renderClients(); renderServices(); renderReels(); renderFeedback();
   applyProfileAndSettings();
   updateMarquees();
+  setupPreviews();
 }
 
 /* ═══════════════════════════════════════════
@@ -1010,7 +1027,8 @@ function setupInteractions() {
   function openModal(id, kind, trigger) {
     lastFocus = trigger || document.activeElement;
     player.className = 'modal-player ' + (kind === 'long' ? 'long' : 'short');
-    player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1&modestbranding=1" title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&mute=0&start=0&rel=0&playsinline=1&modestbranding=1" title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    $$('.vc-prev').forEach(f => f.remove());
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.documentElement.classList.add('modal-open');
